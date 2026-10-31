@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume Studio | Online Resume Builder</title>
+<style>
+:root{--ink:#172033;--muted:#778197;--accent:#6658e8;--line:#e5e9f1;--bg:#f4f6fb}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:var(--ink)}
+header{height:68px;background:#111827;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 5%;position:sticky;top:0;z-index:5}
+.brand{font-size:20px;font-weight:800;letter-spacing:-.5px}.brand span{color:#a99fff}
+.actions{display:flex;gap:10px}button{font:600 13px Arial;cursor:pointer;border:0;border-radius:8px;padding:11px 15px}
+.primary{background:var(--accent);color:white}.secondary{background:#ffffff18;color:white;border:1px solid #ffffff35}
+.layout{max-width:1450px;margin:26px auto;padding:0 24px;display:grid;grid-template-columns:minmax(390px,.9fr) minmax(460px,1.1fr);gap:24px;align-items:start}
+.panel{background:white;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 8px 25px #17203308}
+.heading{padding:24px 25px 17px}.eyebrow{font-size:10px;letter-spacing:1.4px;color:var(--accent);font-weight:bold;margin:0 0 8px}.heading h1{font-size:24px;margin:0 0 7px}.sub{font-size:13px;color:var(--muted);line-height:1.5;margin:0}
+.tabs{display:flex;gap:2px;padding:0 14px;border-bottom:1px solid var(--line);overflow-x:auto}
+.tabs button{background:none;color:#7b8497;border-radius:0;border-bottom:2px solid transparent;padding:13px 10px;white-space:nowrap}
+.tabs button.active{color:var(--accent);border-color:var(--accent)}
+.form-area{padding:23px 25px;min-height:420px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:flex;flex-direction:column;gap:7px;font-size:12px;font-weight:bold;color:#465064}.field.full{grid-column:1/-1}
+input,textarea{font:13px Arial;padding:10px 11px;border:1px solid #dfe4ed;border-radius:8px;width:100%;color:var(--ink);outline:none}
+input:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px #6658e81a}textarea{resize:vertical;line-height:1.5}
+.section-title{font-size:18px;margin:0 0 6px}.section-desc{font-size:13px;color:var(--muted);margin:0 0 18px;line-height:1.5}
+.item{border:1px solid var(--line);background:#fcfcfe;border-radius:10px;padding:14px;margin-bottom:12px}
+.item-head{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#596276;margin-bottom:12px}
+.remove{background:#fff0f1;color:#c34455;padding:7px 9px}.add{background:#efedff;color:#594ce0;margin-top:5px}
+.skill-row{display:flex;gap:8px;margin-bottom:9px}.skill-row input{flex:1}
+.footer{padding:13px 25px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#8991a2}
+.preview-wrap{position:sticky;top:88px}.preview-label{display:flex;justify-content:space-between;font-size:10px;font-weight:bold;letter-spacing:1px;color:#7b8497;margin:0 3px 12px}
+.paper{background:#fff;border:1px solid #e7eaf0;box-shadow:0 8px 35px #17203313;min-height:780px;padding:42px 46px;color:#202b3b}
+.resume-head{border-bottom:2px solid #27344a;padding-bottom:17px;margin-bottom:20px}.resume-head h1{font-size:29px;letter-spacing:-.8px;margin:0 0 5px}.role{font-size:13px;color:#5e54d9;font-weight:bold;margin:0 0 10px}.contact{font-size:9px;color:#6f7888;line-height:1.7;overflow-wrap:anywhere}
+.resume-section{margin-bottom:19px}.resume-section h2{font-size:11px;letter-spacing:1.1px;text-transform:uppercase;border-bottom:1px solid #dfe4ec;padding-bottom:6px;margin:0 0 10px;color:#293750}
+.resume-section p{font-size:10px;line-height:1.6;color:#465164;margin:5px 0 0}.entry{margin-bottom:12px}.entry-top{display:flex;justify-content:space-between;gap:10px;font-size:10px}.entry-top span{font-size:9px;color:#778195;text-align:right}.entry-sub{font-size:9px;color:#5d54d5;margin-top:3px}.skill-text{font-size:10px;line-height:1.8;color:#465164}
+.note{text-align:center;color:#929bad;font-size:11px;margin:12px 0 0}
+footer{text-align:center;color:#9aa2b1;font-size:11px;padding:18px}
+@media(max-width:1000px){.layout{grid-template-columns:1fr;max-width:800px}.preview-wrap{position:static}.paper{max-width:720px;margin:auto}}
+@media(max-width:560px){header{padding:0 12px}.brand{font-size:16px}.actions .secondary{display:none}.layout{padding:0 10px;margin:12px auto}.heading{padding:20px 16px}.tabs{padding:0 7px}.tabs button{padding:12px 8px}.form-area{padding:19px 15px}.grid{grid-template-columns:1fr}.field.full{grid-column:auto}.paper{padding:28px 22px;min-height:0}.footer{padding:12px 15px}}
+@media print{body{background:white}header,.editor,.preview-label,.note,footer{display:none!important}.layout{display:block;margin:0;padding:0}.preview-wrap{position:static}.paper{border:0;box-shadow:none;width:210mm;max-width:100%;min-height:0;margin:auto;padding:13mm 15mm}.resume-section,.entry{break-inside:avoid}@page{size:A4;margin:0}}
+</style>
+</head>
+<body>
+<header><div class="brand">Resume<span>Studio</span></div><div class="actions"><button class="secondary" onclick="togglePreview()">Hide preview</button><button class="primary" onclick="window.print()">⬇ Download PDF</button></div></header>
+<main class="layout" id="layout">
+<section class="panel editor">
+<div class="heading"><p class="eyebrow">BUILD YOUR PROFILE</p><h1>Online Resume Builder</h1><p class="sub">Edit your details, add sections, and watch your resume update instantly.</p></div>
+<nav class="tabs" id="tabs"></nav><div class="form-area" id="formArea"></div>
+<div class="footer"><span>● Changes update automatically</span><button class="primary" onclick="window.print()">Export resume</button></div>
+</section>
+<section class="preview-wrap" id="previewWrap"><div class="preview-label"><span>LIVE PREVIEW</span><span>A4 · PRINT READY</span></div><article class="paper" id="paper"></article><p class="note">Complete your contact details and verify all information before exporting.</p></section>
+</main><footer>ResumeStudio · Built with HTML, CSS and JavaScript</footer>
+<script>
+const state={
+ name:"Rishi Tiwari",role:"Computer Science Engineering Student",email:"",phone:"",location:"Delhi, India",linkedin:"",github:"",
+ summary:"Third-year B.Tech Computer Science student at SRM Institute of Science and Technology, Tiruchirappalli. Interested in software development, problem-solving, and practical applications of IoT and machine learning.",
+ education:[
+ {degree:"B.Tech — Computer Science and Engineering",school:"SRM Institute of Science and Technology, Tiruchirappalli",dates:"2024 – Present",detail:"Currently in 3rd year"},
+ {degree:"Class XII",school:"Aster Public School",dates:"2023 – 2024",detail:"70.2%"},
+ {degree:"Class X",school:"Aster Public School",dates:"2021 – 2022",detail:"87.8%"}],
+ skills:["C Programming","Problem Solving","HTML","CSS","JavaScript","ReactJS"],
+ projects:[
+ {name:"Wearable IoT Edge Fall Detection Device for the Elderly",description:"Academic ML/IoT project concept focused on detecting falls and supporting faster assistance for elderly users. Team name: Safestep AI."},
+ {name:"ESP32-Based Air Quality Monitoring Prototype",description:"Built a prototype using an ESP32, MQ-135 gas sensor, and OLED display, with a phone-accessible web dashboard to show air-quality status."}],
+ experience:[],certificates:[]
+};
+const sections=[
+ ["personal","Personal"],["education","Education"],["skills","Skills"],["projects","Projects"],["experience","Experience"],["certificates","Certificates"]
+];let active="personal",preview=true;
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function renderTabs(){document.getElementById("tabs").innerHTML=sections.map(([id,label])=>`<button class="${active===id?"active":""}" onclick="setTab('${id}')">${label}</button>`).join("")}
+function field(label,key,full=false,area=false){return `<label class="field ${full?"full":""}">${label}${area?`<textarea rows="5" oninput="state.${key}=this.value;renderPreview()">${esc(state[key])}</textarea>`:`<input value="${esc(state[key])}" oninput="state.${key}=this.value;renderPreview()">`}</label>`}
+function renderForm(){
+ const el=document.getElementById("formArea");
+ if(active==="personal"){el.innerHTML=`<div class="grid">${field("Full name","name")}${field("Professional headline","role")}${field("Email","email")}${field("Phone","phone")}${field("Location","location")}${field("LinkedIn URL","linkedin")}${field("GitHub / Portfolio","github")}${field("Professional summary","summary",true,true)}</div>`}
+ else if(active==="skills"){el.innerHTML=`<h2 class="section-title">Skills</h2><p class="section-desc">Add or edit skills you can confidently demonstrate.</p><div>${state.skills.map((s,i)=>`<div class="skill-row"><input value="${esc(s)}" oninput="state.skills[${i}]=this.value;renderPreview()"><button class="remove" onclick="removeItem('skills',${i})">✕</button></div>`).join("")}</div><button class="add" onclick="addItem('skills')">＋ Add skill</button>`}
+ else{
+ const configs={
+ education:{title:"Education",desc:"Add your degrees and academic history.",fields:[["Degree / qualification","degree"],["Institution","school"],["Dates","dates"],["Grade / details","detail"]],blank:{degree:"Degree / qualification",school:"Institution name",dates:"Year – Year",detail:"Relevant details"}},
+ projects:{title:"Projects",desc:"Highlight your projects, contribution and tools used.",fields:[["Project name","name"],["Description","description","full"]],blank:{name:"Project name",description:"Describe what you built, your role, and the tools used."}},
+ experience:{title:"Experience",desc:"Add internships, volunteering, part-time roles or leadership experience.",fields:[["Role","role"],["Organization","company"],["Dates","dates"],["Description","description","full"]],blank:{role:"Role / position",company:"Organization",dates:"Month Year – Month Year",description:"Describe your responsibilities and achievements."}},
+ certificates:{title:"Certifications & achievements",desc:"Only list certificates and achievements you have actually earned.",fields:[["Name","name"],["Issuer","issuer"],["Date","date"]],blank:{name:"Certificate / achievement",issuer:"Issuing organization",date:"Year"}}
+ };
+ const c=configs[active],items=state[active];
+ el.innerHTML=`<h2 class="section-title">${c.title}</h2><p class="section-desc">${c.desc}</p>${items.length?items.map((item,i)=>`<div class="item"><div class="item-head"><strong>Entry ${i+1}</strong><button class="remove" onclick="removeItem('${active}',${i})">Delete</button></div><div class="grid">${c.fields.map(([label,key,full])=>`<label class="field ${full?"full":""}">${label}${key==="description"?`<textarea rows="3" oninput="state.${active}[${i}].${key}=this.value;renderPreview()">${esc(item[key])}</textarea>`:`<input value="${esc(item[key])}" oninput="state.${active}[${i}].${key}=this.value;renderPreview()">`}</label>`).join("")}</div></div>`).join(""):`<p class="section-desc">No entries added yet. You can leave this section empty.</p>`}<button class="add" onclick="addItem('${active}')">＋ Add ${c.title.toLowerCase()}</button>`;
+ }
+}
+function setTab(id){active=id;renderTabs();renderForm()}
+function addItem(section){if(section==="skills")state.skills.push("New skill");else{const blanks={education:{degree:"Degree / qualification",school:"Institution name",dates:"Year – Year",detail:""},projects:{name:"Project name",description:""},experience:{role:"Role / position",company:"Organization",dates:"",description:""},certificates:{name:"Certificate / achievement",issuer:"",date:""}};state[section].push({...blanks[section]})}renderForm();renderPreview()}
+function removeItem(section,i){state[section].splice(i,1);renderForm();renderPreview()}
+function block(title,content){return content?`<section class="resume-section"><h2>${title}</h2>${content}</section>`:""}
+function renderPreview(){
+ const contact=[state.email,state.phone,state.location,state.linkedin,state.github].filter(Boolean).map(esc).join("　•　");
+ const edu=state.education.map(e=>`<div class="entry"><div class="entry-top"><strong>${esc(e.degree)}</strong><span>${esc(e.dates)}</span></div><div class="entry-sub">${esc(e.school)}</div>${e.detail?`<p>${esc(e.detail)}</p>`:""}</div>`).join("");
+ const projects=state.projects.map(p=>`<div class="entry"><strong style="font-size:10px">${esc(p.name)}</strong><p>${esc(p.description)}</p></div>`).join("");
+ const exp=state.experience.map(x=>`<div class="entry"><div class="entry-top"><strong>${esc(x.role)}</strong><span>${esc(x.dates)}</span></div><div class="entry-sub">${esc(x.company)}</div><p>${esc(x.description)}</p></div>`).join("");
+ const cert=state.certificates.map(c=>`<div class="entry"><div class="entry-top"><strong>${esc(c.name)}</strong><span>${esc(c.date)}</span></div><div class="entry-sub">${esc(c.issuer)}</div></div>`).join("");
+ document.getElementById("paper").innerHTML=`<div class="resume-head"><h1>${esc(state.name||"Your Name")}</h1><p class="role">${esc(state.role)}</p><div class="contact">${contact}</div></div>${block("Professional Summary",`<p>${esc(state.summary)}</p>`)}${block("Education",edu)}${block("Technical Skills",`<div class="skill-text">${state.skills.filter(Boolean).map(esc).join("　•　")}</div>`)}${block("Projects",projects)}${block("Experience",exp)}${block("Certifications & Achievements",cert)}<div style="border-top:1px solid #e5e8ee;padding-top:10px;margin-top:24px;color:#9aa2af;font-size:8px;text-align:center">References available upon request</div>`;
+}
+function togglePreview(){preview=!preview;document.getElementById("previewWrap").style.display=preview?"block":"none";document.querySelector(".actions .secondary").textContent=preview?"Hide preview":"Show preview"}
+renderTabs();renderForm();renderPreview();
+</script>
+</body></html>
